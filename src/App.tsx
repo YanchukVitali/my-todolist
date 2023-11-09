@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import {Todolist} from "./Todolist";
 
-/*
 function App() {
 
   const tasks1 = [
@@ -22,6 +21,5 @@ function App() {
       </div>
   );
 }
-*/
 
 export default App;
