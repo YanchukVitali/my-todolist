@@ -3,7 +3,6 @@ import './App.css';
 import {TaskType, Todolist} from "./Todolist";
 
 function App() {
-    debugger
     const tasks1: Array<TaskType>  = [
         {id: 1, title: "HTML&CSS", isDone: true},
         {id: 2, title: "JS", isDone: true},
