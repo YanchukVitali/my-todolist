@@ -31,15 +31,16 @@ export function Todolist(props: PropsType) {
         }
     }
 
-    const onAllClickHandler = ()=>{
+    const onAllClickHandler = () => {
         props.changeFilter("all")
     }
-    const onActiveClickHandler = ()=>{
+    const onActiveClickHandler = () => {
         props.changeFilter("active")
     }
-    const onCompletedClickHandler = ()=>{
+    const onCompletedClickHandler = () => {
         props.changeFilter("completed")
     }
+
 
     return <div>
         <h3>{props.title}</h3>
