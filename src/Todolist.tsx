@@ -13,6 +13,7 @@ type PropsType = {
     removeTask: (taskId: string) => void
     changeFilter: (value: FilterValueType) => void
     addTask: (title: string) => void
+    deleteAllTask: (id: string) => void
 }
 
 
@@ -39,6 +40,9 @@ export function Todolist(props: PropsType) {
     }
     const onCompletedClickHandler = () => {
         props.changeFilter("completed")
+    }
+    const onDeleteClickHandler = () => {
+        props.deleteAllTask("none")
     }
 
 
@@ -71,6 +75,9 @@ export function Todolist(props: PropsType) {
 
         </ul>
         <div>
+            <div>
+                <button onClick={onDeleteClickHandler}>Delete all Tasks</button>
+            </div>
             <button onClick={onAllClickHandler}>All
             </button>
             <button onClick={onActiveClickHandler}>Active
