@@ -14,6 +14,7 @@ type PropsType = {
     changeFilter: (value: FilterValueType) => void
     addTask: (title: string) => void
     deleteAllTask: (id: string) => void
+    reloadTask: (id: string) => void
 }
 
 
@@ -43,6 +44,9 @@ export function Todolist(props: PropsType) {
     }
     const onDeleteClickHandler = () => {
         props.deleteAllTask("none")
+    }
+    const onReloadTask = ()=>{
+        props.reloadTask("reload")
     }
 
 
@@ -84,6 +88,7 @@ export function Todolist(props: PropsType) {
             </button>
             <button onClick={onCompletedClickHandler}>Completed
             </button>
+            <button onClick={onReloadTask}>Reload</button>
         </div>
     </div>
 }
