@@ -36,11 +36,7 @@ function App() {
         setFilter(value);
     }
 
-    ////////////////// refactor this code>>>>
-    function reloadTask(id: string) {
-        setTasks(tasks1)
-    }
-//////////////////////////////////////////////////////////////
+
 
 
 
@@ -63,8 +59,6 @@ function App() {
                       changeFilter={changeFilter}
                       addTask={addTask}
                       deleteAllTask={deleteAllTask}
-                      reloadTask={reloadTask}
-
             />
 
         </div>
