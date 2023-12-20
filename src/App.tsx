@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Todolist} from "./Todolist";
+import {TaskType, Todolist} from "./Todolist";
 import {v1} from "uuid";
 
 export type FilterValueType = "all" | "active" | "completed" | "none" | "reload"
 
 function App() {
-    let [tasks1, setTasks] = useState([
+    let [tasks1, setTasks] = useState<Array<TaskType>>([
         {id: v1(), title: "HTML&CSS", isDone: true},
         {id: v1(), title: "JS", isDone: true},
         {id: v1(), title: "ReactJS", isDone: false},
@@ -31,8 +31,10 @@ function App() {
     }
 
     function removeTask(id: string) {
-        tasks1 = tasks1.filter(t => t.id !== id)
-        setTasks(tasks1)
+        setTasks(tasks1.filter(t => t.id !== id))
+        //<<==I can use top cod or under ==>>
+       /* tasks1 = tasks1.filter(t => t.id !== id)
+        setTasks(tasks1)*/
     }
 
     function deleteAllTask(id: string) {
