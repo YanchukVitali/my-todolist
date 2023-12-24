@@ -13,6 +13,16 @@ function App() {
         {id: v1(), title: "Rest API", isDone: false},
         {id: v1(), title: "GraphQL", isDone: false}
     ]);
+///Primer!! tasks2!!
+  /*  const [task2, setTasks2] = useState<Array<TaskType>>([
+        {id: v1(), title: "Vit", isDone: true},
+        {id: v1(), title: "Anna", isDone: true},
+        {id: v1(), title: "Ruslan", isDone: false},
+        {id: v1(), title: "AnnaM", isDone: true},
+        {id: v1(), title: "Tereza", isDone: true},
+    ]);*/
+
+
     let [filter, setFilter] = useState<FilterValueType>("all")
 
 
@@ -33,8 +43,8 @@ function App() {
     function removeTask(id: string) {
         setTasks(tasks1.filter(t => t.id !== id))
         //<<==I can use top cod or under ==>>
-       /* tasks1 = tasks1.filter(t => t.id !== id)
-        setTasks(tasks1)*/
+        /* tasks1 = tasks1.filter(t => t.id !== id)
+         setTasks(tasks1)*/
     }
 
     function deleteAllTask(id: string) {
@@ -61,6 +71,7 @@ function App() {
     return (
         <div className="App">
             <Todolist title="What to learn"
+                     /* tasks2={newTasksForTodolist}*/
                       tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
