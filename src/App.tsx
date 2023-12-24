@@ -14,13 +14,13 @@ function App() {
         {id: v1(), title: "GraphQL", isDone: false}
     ]);
 ///Primer!! tasks2!!
-  /*  const [task2, setTasks2] = useState<Array<TaskType>>([
-        {id: v1(), title: "Vit", isDone: true},
-        {id: v1(), title: "Anna", isDone: true},
-        {id: v1(), title: "Ruslan", isDone: false},
-        {id: v1(), title: "AnnaM", isDone: true},
-        {id: v1(), title: "Tereza", isDone: true},
-    ]);*/
+      const [tasks2, setTasks2] = useState<Array<TaskType>>([
+          {id: v1(), title: "Vit", isDone: true},
+          {id: v1(), title: "Anna", isDone: true},
+          {id: v1(), title: "Ruslan", isDone: false},
+          {id: v1(), title: "AnnaM", isDone: true},
+          {id: v1(), title: "Tereza", isDone: true},
+      ]);
 
 
     let [filter, setFilter] = useState<FilterValueType>("all")
@@ -56,7 +56,7 @@ function App() {
         setFilter(value);
     }
 
-
+    let newTasksForTodolist = tasks2;
     let tasksForTodolist = tasks1;
 
     if (filter === "active") {
@@ -71,14 +71,22 @@ function App() {
     return (
         <div className="App">
             <Todolist title="What to learn"
-                     /* tasks2={newTasksForTodolist}*/
+                /* tasks2={newTasksForTodolist}*/
                       tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
                       addTask={addTask}
                       deleteAllTask={deleteAllTask}
                       changeTaskStatus={changeTaskStatus}
-
+            />
+            <Todolist title="What to learn"
+                      tasks={newTasksForTodolist}
+                /* tasks={tasksForTodolist}*/
+                      removeTask={removeTask}
+                      changeFilter={changeFilter}
+                      addTask={addTask}
+                      deleteAllTask={deleteAllTask}
+                      changeTaskStatus={changeTaskStatus}
             />
 
         </div>
