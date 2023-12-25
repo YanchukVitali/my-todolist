@@ -14,16 +14,16 @@ function App() {
         {id: v1(), title: "GraphQL", isDone: false}
     ]);
 ///Primer!! tasks2!!
-      const [tasks2, setTasks2] = useState<Array<TaskType>>([
-          {id: v1(), title: "Vit", isDone: true},
-          {id: v1(), title: "Anna", isDone: true},
-          {id: v1(), title: "Ruslan", isDone: false},
-          {id: v1(), title: "AnnaM", isDone: true},
-          {id: v1(), title: "Tereza", isDone: true},
-      ]);
+    /*   const [tasks2, setTasks2] = useState<Array<TaskType>>([
+           {id: v1(), title: "Kia", isDone: true},
+           {id: v1(), title: "BMW", isDone: true},
+           {id: v1(), title: "Mercedes", isDone: false},
+           {id: v1(), title: "GMC", isDone: true},
+           {id: v1(), title: "Toyota", isDone: true},
+       ]);*/
 
 
-    let [filter, setFilter] = useState<FilterValueType>("all")
+    let [filterValue, setFilter] = useState<FilterValueType>("all")
 
 
     function addTask(title: string) {
@@ -56,38 +56,38 @@ function App() {
         setFilter(value);
     }
 
-    let newTasksForTodolist = tasks2;
-    let tasksForTodolist = tasks1;
+    /*  let newTasksForTodolist = tasks2;*/
 
+    // 1.or this code ======>>
+    const tasksForTodolist = (tasks1: Array<TaskType>, filterValue: FilterValueType): Array<TaskType> => {
+        return filterValue === "active"
+            ? tasks1.filter(t => t.isDone === false)
+            : filterValue === "completed"
+                ? tasks1.filter(t => t.isDone === true)
+                : tasks1
+    }
+    const filteredTasks = tasksForTodolist(tasks1, filterValue)
+    //1. or this code ===>>>
+
+    /*let     tasksForTodolist = tasks1;
     if (filter === "active") {
         tasksForTodolist = tasks1.filter(task => task.isDone === false)
     }
     if (filter === "completed") {
         tasksForTodolist = tasks1.filter(task => task.isDone === true)
-    }
-// refactor this function--->>
-
+    }*/
 
     return (
         <div className="App">
             <Todolist title="What to learn"
-                /* tasks2={newTasksForTodolist}*/
-                      tasks={tasksForTodolist}
+                      tasks={filteredTasks}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
                       addTask={addTask}
                       deleteAllTask={deleteAllTask}
                       changeTaskStatus={changeTaskStatus}
             />
-            <Todolist title="What to learn"
-                      tasks={newTasksForTodolist}
-                /* tasks={tasksForTodolist}*/
-                      removeTask={removeTask}
-                      changeFilter={changeFilter}
-                      addTask={addTask}
-                      deleteAllTask={deleteAllTask}
-                      changeTaskStatus={changeTaskStatus}
-            />
+
 
         </div>
     );
