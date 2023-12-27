@@ -1,8 +1,8 @@
 import React from "react";
 
-type ButtonPropsType = {
+ type ButtonPropsType = {
     title: string
-    onClickHandler: () => void
+    onClickHandler?: () => void
 }
 
 export const Button = (props: ButtonPropsType) => {
