@@ -13,7 +13,8 @@ type PropsType = {
     /* tasks2: Array<TaskType>*/
     tasks: Array<TaskType>
     removeTask: (taskId: string) => void
-    changeFilter: (value: FilterValueType) => void
+    // changeFilter: (value: FilterValueType) => void
+    changeFilter: (filterValue: FilterValueType) => void
     addTask: (title: string) => void
     deleteAllTask: (id: string) => void
     // need refactor
@@ -49,7 +50,6 @@ export function Todolist(props: PropsType) {
         props.deleteAllTask("none")
     }
 
-
     return <div>
         <h3>{props.title}</h3>
         <div>
@@ -58,7 +58,9 @@ export function Todolist(props: PropsType) {
                 /*add "Press Enter and add Tasks"*/
                    onKeyDown={onKeyDownHandler}/>
             {/* add addTask for this button*/}
-            <Button title="+" onClickHandler={addTask}/>
+            {/* <Button title="+" onClickHandler={addTask}/>*/}
+            <Button title="+" onClickHandler={() => {
+            }}/>
         </div>
         <ul>
             <li>
@@ -72,23 +74,22 @@ export function Todolist(props: PropsType) {
                             <input type="checkbox" checked={t.isDone}
                                    onChange={onChangeHandler}/>
                             <span>{t.title}</span>
-                            <button onClick={() => {
+                            <Button title="✖️" onClickHandler={() => {
                                 props.removeTask(t.id)
-                            }}>✖️
-                            </button>
+                            }}/>
+
                         </li>
                     )
                 })}
             </li>
-
         </ul>
         <div>
             <div>
-                <Button title="Dellet all tasks" onClickHandler={onDeleteClickHandler}/>
+                <Button title="Delete all tasks" onClickHandler={() => onDeleteClickHandler()}/>
             </div>
-            <Button title="all" onClickHandler={onAllClickHandler}/>
-            <Button title="Active" onClickHandler={onActiveClickHandler}/>
-            <Button title="Completed" onClickHandler={onCompletedClickHandler}/>
+            <Button title="All" onClickHandler={() => onAllClickHandler()}/>
+            <Button title="Active" onClickHandler={() => onActiveClickHandler()}/>
+            <Button title="Completed" onClickHandler={() => onCompletedClickHandler()}/>
 
 
         </div>
