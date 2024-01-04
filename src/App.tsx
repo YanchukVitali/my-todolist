@@ -14,13 +14,13 @@ function App() {
         {id: v1(), title: "GraphQL", isDone: false}
     ]);
 ///Primer!! tasks2!!
-    /*   const [tasks2, setTasks2] = useState<Array<TaskType>>([
+       const [tasks2, setTasks2] = useState<Array<TaskType>>([
            {id: v1(), title: "Kia", isDone: true},
            {id: v1(), title: "BMW", isDone: true},
            {id: v1(), title: "Mercedes", isDone: false},
            {id: v1(), title: "GMC", isDone: true},
            {id: v1(), title: "Toyota", isDone: true},
-       ]);*/
+       ]);
 
 
     let [filterValue, setFilter] = useState<FilterValueType>("all")
