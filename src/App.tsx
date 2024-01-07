@@ -4,6 +4,7 @@ import {TaskType, Todolist} from "./Todolist";
 import {v1} from "uuid";
 
 export type FilterValueType = "all" | "active" | "completed" | "none" | "reload" | "Delete all tasks"
+const todoListTitle: string = "What to learn!?"
 
 function App() {
     let [tasks1, setTasks] = useState<Array<TaskType>>([
@@ -14,14 +15,14 @@ function App() {
         {id: v1(), title: "GraphQL", isDone: false}
     ]);
 ///Primer!! tasks2!!
-       const [tasks2, setTasks2] = useState<Array<TaskType>>([
+    /*   const [tasks2, setTasks2] = useState<Array<TaskType>>([
            {id: v1(), title: "Kia", isDone: true},
            {id: v1(), title: "BMW", isDone: true},
            {id: v1(), title: "Mercedes", isDone: false},
            {id: v1(), title: "GMC", isDone: true},
            {id: v1(), title: "Toyota", isDone: true},
        ]);
-
+   */
 
     let [filterValue, setFilter] = useState<FilterValueType>("all")
 
@@ -39,19 +40,21 @@ function App() {
             setTasks([...tasks1])
         }
     }
-    const onAllClickHandler = () => {
-       changeFilter("all")
-    }
-    const onActiveClickHandler = () => {
-        changeFilter("active")
-    }
-    const onCompletedClickHandler = () => {
-        changeFilter("completed")
-    }
-    const onDeleteClickHandler = () => {
-        deleteAllTask("none")
-    }
-   function removeTask(id: string) {
+
+    /*    const onAllClickHandler = () => {
+            changeFilter("all")
+        }
+        const onActiveClickHandler = () => {
+            changeFilter("active")
+        }
+        const onCompletedClickHandler = () => {
+            changeFilter("completed")
+        }
+        const onDeleteClickHandler = () => {
+            deleteAllTask("none")
+        }*/
+
+    function removeTask(id: string) {
         setTasks(tasks1.filter(t => t.id !== id))
         //<<==I can use top cod or under ==>>
         /* tasks1 = tasks1.filter(t => t.id !== id)
@@ -94,7 +97,7 @@ function App() {
 
     return (
         <div className="App">
-            <Todolist title="What to learn"
+            <Todolist title={todoListTitle}
                       tasks={filteredTasks} // or like that :tasks={tasksForTodolist(tasks1, filterValue)}
                       removeTask={removeTask}
                       changeFilter={changeFilter}

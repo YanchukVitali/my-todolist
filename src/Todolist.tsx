@@ -58,9 +58,9 @@ export function Todolist(props: PropsType) {
                 /*add "Press Enter and add Tasks"*/
                    onKeyDown={onKeyDownHandler}/>
             {/* add addTask for this button*/}
-            {/* <Button title="+" onClickHandler={addTask}/>*/}
-            <Button title="+" onClickHandler={() => {
-            }}/>
+             <Button title="+" onClickHandler={addTask}/>
+            {/*<Button title="+" onClickHandler={() => {
+            }}/>*/}
         </div>
         <ul>
             <li>
